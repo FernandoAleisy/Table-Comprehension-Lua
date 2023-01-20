@@ -1,5 +1,5 @@
 # Table-Comprehension-Lua
-Función que permite usar crear una tabla en Lua de forma simplificada, simulando el método List comprehension de Python o de otros lenguajes de programación
+Función que permite crear una tabla en Lua de forma simplificada, simulando el método List comprehension de Python o de otros lenguajes de programación
 
 -------------------------------------------------
 
