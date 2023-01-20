@@ -23,7 +23,7 @@ Si se omite g(i,v), entonces, la table comprehension equivale a:
         end
 
 La extracción pueder ser con pairs o ipairs, según si necesitas los indices o los keys (i).
-La función g(i,v) es la condición que deben cumplir i y/o v. Este argumento se puede omitir
+La función g(i,v) es la condición que deben cumplir i y/o v. Este argumento se puede omitir.
 
 ejemplos de f(i,v):
 
@@ -59,7 +59,7 @@ Aunque esto se puede lograr con la función table.keys
         table.print(t)
 		--> { 1, 2, 3, 4, c, b, a, d}
 
-2° Concatenar los indices pares  con  la  palabra indice par'
+2° Concatenar los indices pares con la palabra indice par'
 
 	tab = {a = 3,b = 5,c = 7,d = 9, 4, 5, 6, 7}
 	t_pares = _{'i.." indice par"', tab, 'ipairs', 'i%2==0'}
@@ -91,7 +91,7 @@ Para generar una tabla a partir una cadena de texto:
 
         _{'f(i)', origen, 'patrón', 'g(i)'}
 
-Si el origen es una tabla, la table conprehension equivale a:
+Si el origen es una tabla, entonces, la table comprehension equivale a::
 
         for i in string.gmatch(origen, 'patrón') do
                 if g(i) then
@@ -99,7 +99,7 @@ Si el origen es una tabla, la table conprehension equivale a:
                 end
         end
 
-Si se omite g(i,v), entonces la table comprehension equivale a:
+Si se omite g(i,v), entonces, la table comprehension equivale a:
 
         for i in string.gmatch(origen, 'patrón') do
                 table.insert(tabla, f(i))
@@ -114,7 +114,7 @@ Ejemplo
         table.print(t)
 		--> { 2, 4, 6}
 
-En este ejemplo se uso el patrón '%d+'  para  que  la función string.gmatch() devolviera las  coincidencias con digitos. Con g(i)  =  'i%2==0',  se  garantizo  que  solo  las coincidencias pares se guardaran en la tabla
+En este ejemplo se uso el patrón '%d+' para que la función string.gmatch() devolviera las coincidencias con digitos. Con g(i) = 'i%2==0' se garantizo que solo las coincidencias pares se guardaran en la tabla
 
 --------------------------------------------------------------
 Para generar una tabla sin origen de datos, con una secuencia:
@@ -129,7 +129,7 @@ Este código equivale a:
                 end
         end
 
-Si se omite 'g(i)':
+Si se omite 'g(i)' el código equivale a:
 
         for i = inicio, final, saltos do
                 table.insert(tabla, f(i))
