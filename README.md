@@ -8,7 +8,7 @@ Para generar una tabla a partir de otra tabla:
         _{'f(i,v)', origen, extraccion, 'g(i,v)'}
 
 	
-Si el origen es una tabla, la table conprehension equivale a: 
+Si el origen es una tabla, entonces, la table conprehension equivale a: 
 
         for i,v in extraccion(orgen) do
                 if condicion(i,v) then
@@ -16,15 +16,14 @@ Si el origen es una tabla, la table conprehension equivale a:
                 end
         end
 
-Si se omite g(i,v), entonces la table comprehension equivale a:
+Si se omite g(i,v), entonces, la table comprehension equivale a:
 
         for i,v extraccion(orgen) do
                 table.insert(tabla, f(i,v))
         end
 
-la extracción pueder ser con pairs o ipairs, según si necesitas los indices o los keys (i)
-
-la función g(i,v) es la condición que deben cumplir i y/o v. Este argumento se puede omitir
+La extracción pueder ser con pairs o ipairs, según si necesitas los indices o los keys (i).
+La función g(i,v) es la condición que deben cumplir i y/o v. Este argumento se puede omitir
 
 ejemplos de f(i,v):
 
@@ -35,7 +34,7 @@ ejemplos de f(i,v):
         'tonumber(v)'
         'v^2+3v-2'
 
-Recordar que si el origen de los datos es una tabla i sera cada una de las keys o indices y v será cada uno de los values de la tabla
+Recordar que, si el origen de los datos es una tabla, i sera cada una de las keys o indices y v será cada uno de los values de la tabla
 
 ejemplos de g(i,v):
 
