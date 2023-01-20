@@ -2,11 +2,12 @@
 Función que permite usar crear una tabla en Lua de forma simplificada, simulando el método List comprehension de Python o de otros lenguajes de programación
 
 -------------------------------------------------
--- Para generar una tabla a partir de otra tabla:
+Para generar una tabla a partir de otra tabla:
 
+-----------------------------------------
 _{'f(i,v)', origen, extraccion, 'g(i,v)'}
 
-	--------------------------------------------------------
+	
 	-- Si el origen es una tabla, la table conprehension 
 	-- equivale 
 
