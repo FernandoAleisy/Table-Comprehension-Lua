@@ -11,7 +11,7 @@ Para generar una tabla a partir de otra tabla:
 Si el origen es una tabla, entonces, la table conprehension equivale a: 
 
         for i,v in extraccion(orgen) do
-                if condicion(i,v) then
+                if g(i,v) then
                         table.insert(tabla, f(i,v))
                 end
         end
