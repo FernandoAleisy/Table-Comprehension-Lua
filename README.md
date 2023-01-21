@@ -91,7 +91,7 @@ Para generar una tabla a partir una cadena de texto:
 
         _{'f(i)', origen, 'patrón', 'g(i)'}
 
-Si el origen es una tabla, entonces, la table comprehension equivale a::
+Si el origen es un texto, entonces, la table comprehension equivale a::
 
         for i in string.gmatch(origen, 'patrón') do
                 if g(i) then
