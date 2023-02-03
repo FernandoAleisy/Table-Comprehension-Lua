@@ -1,85 +1,85 @@
 # Table-Comprehension-Lua
-Función que permite crear una tabla en Lua de forma simplificada, simulando el método List comprehension de Python o de otros lenguajes de programación
+Function that allows to create a table in Lua in a simplified way, simulating the List comprehension method of Python or other programming languages.
 
 -------------------------------------------------
 
-Para generar una tabla a partir de otra tabla:
+To generate a table from another table:
 
-        _{'f(i,v)', origen, extraccion, 'g(i,v)'}
+        _{'f(i,v)', origin, extractio, 'g(i,v)'}
 
 	
-Si el origen es una tabla, entonces, la table conprehension equivale a: 
+If the origin is a table, then, the table conprehension is equivalent to: 
 
-        for i,v in extraccion(orgen) do
+        for i,v in extractio(origin) do
                 if g(i,v) then
                         table.insert(tabla, f(i,v))
                 end
         end
 
-Si se omite g(i,v), entonces, la table comprehension equivale a:
+If g(i,v) is omitted, then, the table comprehension is equivalent to:
 
-        for i,v extraccion(orgen) do
+        for i,v extractio(origin) do
                 table.insert(tabla, f(i,v))
         end
 
-La extracción pueder ser con pairs o ipairs, según si necesitas los indices o los keys (i).
-La función g(i,v) es la condición que deben cumplir i y/o v. Este argumento se puede omitir.
+The extraction can be with pairs or ipairs, depending on whether you need the indices or the keys (i).
+The function g(i,v) is the condition that i and/or v must fulfill. This argument can be omitted.
 
-ejemplos de f(i,v):
+examples of f(i,v):
 
         'i*v'
         'i+2'
         'v^2'
-        '"dato "..i'
+        '"data "..i'
         'tonumber(v)'
         'v^2+3v-2'
 
-Recordar que, si el origen de los datos es una tabla, i sera cada una de las keys o indices y v será cada uno de los values de la tabla
+Remember that, if the data source is a table, i will be each of the keys or indexes and v will be each of the values of the table.
 
-ejemplos de g(i,v):
+examples of g(i,v):
 
         'i%2 == 0'
         'v == "oso"'
         'v%2 ~= 0'
-        'tonumber(v)' --> Si el value se puede convertir a número
+        'tonumber(v)' --> If the value can be converted to a number
 
 ---------
-Ejemplos:
+Examples:
 
-1° Crear una tabla con las keys de una tabla dada
+1° Create a table with the keys of a given table.
 
         tab = {a = 3,b = 5,c = 7,d = 9, 4, 5, 6, 7}
         t = _{'i', tab, 'pairs'}
         table.print(t)
 		--> { 1, 2, 3, 4, c, b, a, d}
 
-Aunque esto se puede lograr con la función table.keys
+Although this can be achieved with the function table.keys
 
         t = table.keys(tab)
         table.print(t)
 		--> { 1, 2, 3, 4, c, b, a, d}
 
-2° Concatenar los indices pares con la palabra indice par'
+2° Concatenate the even indexes with the word 'even index'.
 
 	tab = {a = 3,b = 5,c = 7,d = 9, 4, 5, 6, 7}
 	t_pares = _{'i.." indice par"', tab, 'ipairs', 'i%2==0'}
 	table.print(t_pares)
 		--> { 2 indice par, 4 indice par}
 
-En este ejemplo:
+In this example:
 	-- f(i,v) 		= 'i.." indice par"'
-	-- origen 		= la tabla tab
-	-- extracción 	= iparis
+	-- origin		= la tabla tab
+	-- extractio 	= iparis
 	-- g(i,v) 		= 'i%2==0'
 
 
-3° Concatenar los indices impares con la palabra 'indice impar'
+3° Concatenate the odd indices with the word 'odd index'.
 
         t2_impares = _{'i.." indice impar"', tab, 'ipairs', 'i%2~=0'}
         table.print(t2_impares)
 		--> { 1 indice impar, 3 indice impar}
 
-4° Crear una tabla con los multiplos de 3 de una lista
+4° Create a table with the multiplies of 3 in a list
 
         lista = {2,6,8,12,14,18,21}
         mult_3 = _{'v', lista, 'pairs', 'v%3 == 0'}
@@ -87,11 +87,11 @@ En este ejemplo:
 		--> { 6, 12, 18, 21}
 
 ----------------------------------------------------
-Para generar una tabla a partir una cadena de texto:
+To generate a table from a text string:
 
-        _{'f(i)', origen, 'patrón', 'g(i)'}
+        _{'f(i)', origin, 'pattern', 'g(i)'}
 
-Si el origen es un texto, entonces, la table comprehension equivale a::
+If the source is a text, then table comprehension is equivalent to:
 
         for i in string.gmatch(origen, 'patrón') do
                 if g(i) then
@@ -99,43 +99,43 @@ Si el origen es un texto, entonces, la table comprehension equivale a::
                 end
         end
 
-Si se omite g(i,v), entonces, la table comprehension equivale a:
+If g(i,v) is omitted, then, the table comprehension is equivalent to:
 
         for i in string.gmatch(origen, 'patrón') do
                 table.insert(tabla, f(i))
         end
 
-Se deben tener en cuenta los patrones que se utilizan en la función string.gmatch()
+The patterns used in the string.gmatch() function must be taken into account.
 
-Ejemplo
+Example:
 
         texto = 'var1, var2, var3,var4,var5,var6, var'
         t = _{'i',texto, '%d+','i%2==0'}
         table.print(t)
 		--> { 2, 4, 6}
 
-En este ejemplo se uso el patrón '%d+' para que la función string.gmatch() devolviera las coincidencias con digitos. Con g(i) = 'i%2==0' se garantizo que solo las coincidencias pares se guardaran en la tabla
+In this example the pattern '%d+' was used for the string.gmatch() function to return matches with digits. With g(i) = 'i%2==0' it was guaranteed that only even matches would be stored in the table.
 
 --------------------------------------------------------------
-Para generar una tabla sin origen de datos, con una secuencia:
+To generate a table without a data source, with a sequence:
 
         s = _{'f(i)', seq,{inicio,final,saltos}, 'g(i)'}
 
-Este código equivale a:
+This code is equivalent to:
 
-        for i = inicio, final, saltos do
+        for i = start, end, jumps do
                 if 'g(i)' then
                         table.insert(tabla, f(i))
                 end
         end
 
-Si se omite 'g(i)' el código equivale a:
+If 'g(i)' is omitted, the code is equivalent to:
 
-        for i = inicio, final, saltos do
+        for i = start, end, jumps do
                 table.insert(tabla, f(i))
         end
 
-Ejemplo
+Example:
 
         s = _{'math.floor (i^2)', seq,{2,20,2}, 'i%4==0'}
         table.print(s)
