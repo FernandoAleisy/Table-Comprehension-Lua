@@ -12,14 +12,14 @@ If the origin is a table, then, the table conprehension is equivalent to:
 
         for i,v in extractio(origin) do
                 if g(i,v) then
-                        table.insert(tabla, f(i,v))
+                        table.insert(table_name, f(i,v))
                 end
         end
 
 If g(i,v) is omitted, then, the table comprehension is equivalent to:
 
         for i,v extractio(origin) do
-                table.insert(tabla, f(i,v))
+                table.insert(table_name, f(i,v))
         end
 
 The extraction can be with pairs or ipairs, depending on whether you need the indices or the keys (i).
@@ -68,8 +68,8 @@ Although this can be achieved with the function table.keys
 
 In this example:
 	-- f(i,v) 		= 'i.." indice par"'
-	-- origin		= la tabla tab
-	-- extractio 	= iparis
+	-- origin		= the table tab
+	-- extractio 	 	= iparis
 	-- g(i,v) 		= 'i%2==0'
 
 
@@ -93,16 +93,16 @@ To generate a table from a text string:
 
 If the source is a text, then table comprehension is equivalent to:
 
-        for i in string.gmatch(origen, 'patrón') do
+        for i in string.gmatch(origin, 'pattern') do
                 if g(i) then
-                        table.insert(tabla, f(i))
+                        table.insert(table_name, f(i))
                 end
         end
 
 If g(i,v) is omitted, then, the table comprehension is equivalent to:
 
-        for i in string.gmatch(origen, 'patrón') do
-                table.insert(tabla, f(i))
+        for i in string.gmatch(origin, 'pattern') do
+                table.insert(table_name, f(i))
         end
 
 The patterns used in the string.gmatch() function must be taken into account.
@@ -119,7 +119,7 @@ In this example the pattern '%d+' was used for the string.gmatch() function to r
 --------------------------------------------------------------
 To generate a table without a data source, with a sequence:
 
-        s = _{'f(i)', seq,{inicio,final,saltos}, 'g(i)'}
+        s = _{'f(i)', seq,{start, end, jumps}, 'g(i)'}
 
 This code is equivalent to:
 
@@ -132,7 +132,7 @@ This code is equivalent to:
 If 'g(i)' is omitted, the code is equivalent to:
 
         for i = start, end, jumps do
-                table.insert(tabla, f(i))
+                table.insert(table_name, f(i))
         end
 
 Example:
