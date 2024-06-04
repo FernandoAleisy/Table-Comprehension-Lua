@@ -1,4 +1,4 @@
-# Table-Comprehension-Lua
+<center>Table-Comprehension-Lua</center>
 Function that allows to create a table in Lua in a simplified way, simulating the List comprehension method of Python or other programming languages.
 
 -------------------------------------------------
