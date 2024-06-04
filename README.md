@@ -99,7 +99,7 @@ In this example:
 -- origin		= the table tab
 -- extractio 	 	= iparis
 -- g(i,v) 		= 'i%2==0'
-```lua
+```
 
 3° Concatenate the odd indices with the word 'odd index'.
 
