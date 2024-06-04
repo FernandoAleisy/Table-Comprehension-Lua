@@ -118,11 +118,11 @@ table.print(t2_impares)
 lista = {2,6,8,12,14,18,21}
 mult_3 = _{'v', lista, 'pairs', 'v%3 == 0'}
 table.print(mult_3)
-```lua
+```
 
 ```lua
 >> { 6, 12, 18, 21}
-```lua
+```
 
 ----------------------------------------------------
 To generate a table from a text string:
