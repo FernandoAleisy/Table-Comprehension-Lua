@@ -2,9 +2,9 @@
 
 # **Table-Comprehension-Lua**
 
-Function that allows to create a table in Lua in a simplified way, simulating the List comprehension method of Python or other programming languages.
--------------------------------------------------
 
+Function that allows to create a table in Lua in a simplified way, simulating the List comprehension method of Python or other programming languages.
+___
 To generate a table from another table:
 
 ```lua
